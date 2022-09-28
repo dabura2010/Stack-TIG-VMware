@@ -46,4 +46,19 @@ How to install it?
 5) you must change the visualization in the datastore dashboard with plugin error and choise pie chart 
 6) the dashboard of vms need more time to update than the others so be pacient
 7) to enyoy :)
+
+Known issues
+
+docker-compose command fails for non-root user
+
+Create the docker group if not exists:
+
+$ sudo groupadd docker
+Add your user to the docker group
+
+$ sudo usermod -aG docker $USER
+
+Reboot your machine
+
+Then access graphana at http://localhost:3000.
    
