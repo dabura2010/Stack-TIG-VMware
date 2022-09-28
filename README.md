@@ -16,7 +16,7 @@ How to install it?
    URL http://influxdb:8086 
    Database db0
 4) there are 4 dashboard
-5) 
+ 
    a) https://grafana.com/grafana/dashboards/8159-vmware-vsphere-overview/?tab=revisions
    
    b) https://grafana.com/grafana/dashboards/8162-vmware-vsphere-datastore/?tab=revisions
@@ -27,6 +27,7 @@ How to install it?
    
    
     i use these: 
+    
     a) vmware-vsphere-overview_rev38.json
     
     b) vmware-vsphere-datastore_rev8.json
