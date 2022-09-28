@@ -30,5 +30,5 @@ How to install it?
    because the version of grafana is 7.5.17
 5) you must change the visualization in the datastore dashboard with plugin error and choise pie chart 
 6) the dashboard of vms need more time to update than the others so be pacient
-7) to enyoy.
+7) to enyoy :)
    
