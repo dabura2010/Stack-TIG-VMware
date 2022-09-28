@@ -16,8 +16,11 @@ How to install it?
 1) copy the docker-compose and telegraf.conf on /root
 2) Modify telegraf.conf with the parametres of your server
 3) login to grafana and add data souce of telegraf and complete with this parametres:
+
    URL http://influxdb:8086 
+   
    Database db0
+   
 4) there are 4 dashboard
  
    a) https://grafana.com/grafana/dashboards/8159-vmware-vsphere-overview/?tab=revisions
