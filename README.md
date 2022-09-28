@@ -28,8 +28,11 @@ How to install it?
    
     i use these: 
     a) vmware-vsphere-overview_rev38.json
+    
     b) vmware-vsphere-datastore_rev8.json
+    
     c) vmware-vsphere-hosts_rev17.json
+    
     d) vmware-vsphere-vms_rev14.json               
                      
    because the version of grafana is 7.5.17
