@@ -26,12 +26,12 @@ How to install it?
    d) https://grafana.com/grafana/dashboards/8168-vmware-vsphere-vms/?tab=revisions
    
    
-    i use these:
-    
-                a) vmware-vsphere-overview_rev38.json
-                b) vmware-vsphere-datastore_rev8.json
-                c) vmware-vsphere-hosts_rev17.json
-                d) vmware-vsphere-vms_rev14.json  
+    i use these: 
+    a) vmware-vsphere-overview_rev38.json
+    b) vmware-vsphere-datastore_rev8.json
+    c) vmware-vsphere-hosts_rev17.json
+    d) vmware-vsphere-vms_rev14.json               
+                     
    because the version of grafana is 7.5.17
 5) you must change the visualization in the datastore dashboard with plugin error and choise pie chart 
 6) the dashboard of vms need more time to update than the others so be pacient
