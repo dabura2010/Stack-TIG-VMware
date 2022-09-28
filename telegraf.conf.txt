@@ -1,0 +1,431 @@
+[[inputs.vsphere]]
+  interval = "300s"
+
+  # update vCenter credential here
+  vcenters = [ "https://IP_de_tu_servidor/sdk"]      #direccion ip o nombre de tu servidor
+  username = "tu_usuario@vsphere.local"              #usuario creado anteriormente en vSphere Client 
+  password = "tu_contraseña"                         #contaseña definida en vSphere Client  
+
+#-------------------------INICIO PLUGINS VERSION 1.24  AGREGADO POR NOSOTROS-----------------------
+#-------hay 2 versiones de plugin dejar comentado la que no se va a usar en mi caso use la mas vieja 
+
+  ## VMs
+  ## Typical VM metrics (if omitted or empty, all metrics are collected)
+  # vm_include = [ "/*/vm/**"] # Inventory path to VMs to collect (by default all are collected)
+  # vm_exclude = [] # Inventory paths to exclude
+#  vm_metric_include = [
+#    "cpu.demand.average",
+#    "cpu.idle.summation",
+#    "cpu.latency.average",
+#    "cpu.readiness.average",
+#    "cpu.ready.summation",
+#    "cpu.run.summation",
+#    "cpu.usagemhz.average",
+#    "cpu.used.summation",
+#    "cpu.wait.summation",
+#    "mem.active.average",
+#    "mem.granted.average",
+#    "mem.latency.average",
+#    "mem.swapin.average",
+#    "mem.swapinRate.average",
+#    "mem.swapout.average",
+#    "mem.swapoutRate.average",
+#    "mem.usage.average",
+#    "mem.vmmemctl.average",
+#    "net.bytesRx.average",
+#    "net.bytesTx.average",
+#    "net.droppedRx.summation",
+#    "net.droppedTx.summation",
+#    "net.usage.average",
+#    "power.power.average",
+#    "virtualDisk.numberReadAveraged.average",
+#    "virtualDisk.numberWriteAveraged.average",
+#    "virtualDisk.read.average",
+#    "virtualDisk.readOIO.latest",
+#    "virtualDisk.throughput.usage.average",
+#    "virtualDisk.totalReadLatency.average",
+#    "virtualDisk.totalWriteLatency.average",
+#    "virtualDisk.write.average",
+#    "virtualDisk.writeOIO.latest",
+#    "sys.uptime.latest",
+#  ]
+  # vm_metric_exclude = [] ## Nothing is excluded by default
+  # vm_instances = true ## true by default
+
+  ## Hosts
+  ## Typical host metrics (if omitted or empty, all metrics are collected)
+  # host_include = [ "/*/host/**"] # Inventory path to hosts to collect (by default all are collected)
+  # host_exclude [] # Inventory paths to exclude
+#  host_metric_include = [
+#    "cpu.coreUtilization.average",
+#    "cpu.costop.summation",
+#    "cpu.demand.average",
+#    "cpu.idle.summation",
+#    "cpu.latency.average",
+#    "cpu.readiness.average",
+#    "cpu.ready.summation",
+#    "cpu.swapwait.summation",
+#    "cpu.usage.average",
+#    "cpu.usagemhz.average",
+#    "cpu.used.summation",
+#    "cpu.utilization.average",
+#    "cpu.wait.summation",
+#    "disk.deviceReadLatency.average",
+#    "disk.deviceWriteLatency.average",
+#    "disk.kernelReadLatency.average",
+#    "disk.kernelWriteLatency.average",
+#    "disk.numberReadAveraged.average",
+#    "disk.numberWriteAveraged.average",
+#    "disk.read.average",
+#    "disk.totalReadLatency.average",
+#    "disk.totalWriteLatency.average",
+#    "disk.write.average",
+#    "mem.active.average",
+#    "mem.latency.average",
+#    "mem.state.latest",
+#    "mem.swapin.average",
+#    "mem.swapinRate.average",
+#    "mem.swapout.average",
+#    "mem.swapoutRate.average",
+#    "mem.totalCapacity.average",
+#    "mem.usage.average",
+#    "mem.vmmemctl.average",
+#    "net.bytesRx.average",
+#    "net.bytesTx.average",
+#    "net.droppedRx.summation",
+#    "net.droppedTx.summation",
+#    "net.errorsRx.summation",
+#    "net.errorsTx.summation",
+#    "net.usage.average",
+#    "power.power.average",
+#    "storageAdapter.numberReadAveraged.average",
+#    "storageAdapter.numberWriteAveraged.average",
+#    "storageAdapter.read.average",
+#    "storageAdapter.write.average",
+#    "sys.uptime.latest",
+#  ]
+    ## Collect IP addresses? Valid values are "ipv4" and "ipv6"
+  # ip_addresses = ["ipv6", "ipv4" ]
+
+  # host_metric_exclude = [] ## Nothing excluded by default
+  # host_instances = true ## true by default
+
+
+  ## Clusters
+  # cluster_include = [ "/*/host/**"] # Inventory path to clusters to collect (by default all are collected)
+  # cluster_exclude = [] # Inventory paths to exclude
+  # cluster_metric_include = [] ## if omitted or empty, all metrics are collected
+  # cluster_metric_exclude = [] ## Nothing excluded by default
+  # cluster_instances = false ## false by default
+
+  ## Resource Pools
+  # datastore_include = [ "/*/host/**"] # Inventory path to datastores to collect (by default all are collected)
+  # datastore_exclude = [] # Inventory paths to exclude
+  # datastore_metric_include = [] ## if omitted or empty, all metrics are collected
+  # datastore_metric_exclude = [] ## Nothing excluded by default
+  # datastore_instances = false ## false by default
+
+  ## Datastores
+  # datastore_include = [ "/*/datastore/**"] # Inventory path to datastores to collect (by default all are collected)
+  # datastore_exclude = [] # Inventory paths to exclude
+  # datastore_metric_include = [] ## if omitted or empty, all metrics are collected
+  # datastore_metric_exclude = [] ## Nothing excluded by default
+  # datastore_instances = false ## false by default
+
+  ## Datacenters
+  # datacenter_include = [ "/*/host/**"] # Inventory path to clusters to collect (by default all are collected)
+  # datacenter_exclude = [] # Inventory paths to exclude
+#  datacenter_metric_include = [] ## if omitted or empty, all metrics are collected
+#  datacenter_metric_exclude = [ "*" ] ## Datacenters are not collected by default.
+  # datacenter_instances = false ## false by default
+
+  ## Plugin Settings
+  ## separator character to use for measurement and field names (default: "_")
+  # separator = "_"
+
+  ## number of objects to retrieve per query for realtime resources (vms and hosts)
+  ## set to 64 for vCenter 5.5 and 6.0 (default: 256)
+  # max_query_objects = 256
+
+  ## number of metrics to retrieve per query for non-realtime resources (clusters and datastores)
+  ## set to 64 for vCenter 5.5 and 6.0 (default: 256)
+  # max_query_metrics = 256
+
+  ## number of go routines to use for collection and discovery of objects and metrics
+  # collect_concurrency = 1
+  # discover_concurrency = 1
+
+  ## the interval before (re)discovering objects subject to metrics collection (default: 300s)
+  # object_discovery_interval = "300s"
+
+  ## timeout applies to any of the api request made to vcenter
+  # timeout = "60s"
+
+  ## When set to true, all samples are sent as integers. This makes the output
+  ## data types backwards compatible with Telegraf 1.9 or lower. Normally all
+  ## samples from vCenter, with the exception of percentages, are integer
+  ## values, but under some conditions, some averaging takes place internally in
+  ## the plugin. Setting this flag to "false" will send values as floats to
+  ## preserve the full precision when averaging takes place.
+  # use_int_samples = true
+
+  ## Custom attributes from vCenter can be very useful for queries in order to slice the
+  ## metrics along different dimension and for forming ad-hoc relationships. They are disabled
+  ## by default, since they can add a considerable amount of tags to the resulting metrics. To
+  ## enable, simply set custom_attribute_exclude to [] (empty set) and use custom_attribute_include
+  ## to select the attributes you want to include.
+  ## By default, since they can add a considerable amount of tags to the resulting metrics. To
+  ## enable, simply set custom_attribute_exclude to [] (empty set) and use custom_attribute_include
+  ## to select the attributes you want to include.
+  # custom_attribute_include = []
+  # custom_attribute_exclude = ["*"]
+
+  ## The number of vSphere 5 minute metric collection cycles to look back for non-realtime metrics. In
+  ## some versions (6.7, 7.0 and possible more), certain metrics, such as cluster metrics, may be reported
+  ## with a significant delay (>30min). If this happens, try increasing this number. Please note that increasing
+  ## it too much may cause performance issues.
+  # metric_lookback = 3
+
+  ## Optional SSL Config
+  # ssl_ca = "/path/to/cafile"
+  # ssl_cert = "/path/to/certfile"
+  # ssl_key = "/path/to/keyfile"
+  ## Use SSL but skip chain & host verification
+  # insecure_skip_verify = false
+
+  ## The Historical Interval value must match EXACTLY the interval in the daily
+  # "Interval Duration" found on the VCenter server under Configure > General > Statistics > Statistic intervals
+  # historical_interval = "5m"
+
+#--------------------------------FIN PLUGINS-----------------------------------------------------
+
+#----------------------INICIO PLUGINS VERSION 1.8-------------------------------------------------
+
+ ## VMs
+  ## Typical VM metrics (if omitted or empty, all metrics are collected)
+  vm_metric_include = [
+    "cpu.demand.average",
+    "cpu.idle.summation",
+    "cpu.latency.average",
+    "cpu.readiness.average",
+    "cpu.ready.summation",
+    "cpu.run.summation",
+    "cpu.usagemhz.average",
+    "cpu.used.summation",
+    "cpu.wait.summation",
+    "mem.active.average",
+    "mem.granted.average",
+    "mem.latency.average",
+    "mem.swapin.average",
+    "mem.swapinRate.average",
+    "mem.swapout.average",
+    "mem.swapoutRate.average",
+    "mem.usage.average",
+    "mem.vmmemctl.average",
+    "net.bytesRx.average",
+    "net.bytesTx.average",
+    "net.droppedRx.summation",
+    "net.droppedTx.summation",
+    "net.usage.average",
+    "power.power.average",
+    "virtualDisk.numberReadAveraged.average",
+    "virtualDisk.numberWriteAveraged.average",
+    "virtualDisk.read.average",
+    "virtualDisk.readOIO.latest",
+    "virtualDisk.throughput.usage.average",
+    "virtualDisk.totalReadLatency.average",
+    "virtualDisk.totalWriteLatency.average",
+    "virtualDisk.write.average",
+    "virtualDisk.writeOIO.latest",
+    "sys.uptime.latest",
+  ]
+  # vm_metric_exclude = [] ## Nothing is excluded by default
+  # vm_instances = true ## true by default
+
+  ## Hosts
+  ## Typical host metrics (if omitted or empty, all metrics are collected)
+  host_metric_include = [
+    "cpu.coreUtilization.average",
+    "cpu.costop.summation",
+    "cpu.demand.average",
+    "cpu.idle.summation",
+    "cpu.latency.average",
+    "cpu.readiness.average",
+    "cpu.ready.summation",
+    "cpu.swapwait.summation",
+    "cpu.usage.average",
+    "cpu.usagemhz.average",
+    "cpu.used.summation",
+    "cpu.utilization.average",
+    "cpu.wait.summation",
+    "disk.deviceReadLatency.average",
+    "disk.deviceWriteLatency.average",
+    "disk.kernelReadLatency.average",
+    "disk.kernelWriteLatency.average",
+    "disk.numberReadAveraged.average",
+    "disk.numberWriteAveraged.average",
+    "disk.read.average",
+    "disk.totalReadLatency.average",
+    "disk.totalWriteLatency.average",
+    "disk.write.average",
+    "mem.active.average",
+    "mem.latency.average",
+    "mem.state.latest",
+    "mem.swapin.average",
+    "mem.swapinRate.average",
+    "mem.swapout.average",
+    "mem.swapoutRate.average",
+    "mem.totalCapacity.average",
+    "mem.usage.average",
+    "mem.vmmemctl.average",
+    "net.bytesRx.average",
+    "net.bytesTx.average",
+    "net.droppedRx.summation",
+    "net.droppedTx.summation",
+    "net.errorsRx.summation",
+    "net.errorsTx.summation",
+    "net.usage.average",
+    "power.power.average",
+    "storageAdapter.numberReadAveraged.average",
+    "storageAdapter.numberWriteAveraged.average",
+    "storageAdapter.read.average",
+    "storageAdapter.write.average",
+    "sys.uptime.latest",
+  ]
+  # host_metric_exclude = [] ## Nothing excluded by default
+  # host_instances = true ## true by default
+
+  ## Clusters
+  # cluster_metric_include = [] ## if omitted or empty, all metrics are collected
+  # cluster_metric_exclude = [] ## Nothing excluded by default
+  # cluster_instances = true ## true by default
+
+  ## Datastores
+  # datastore_metric_include = [] ## if omitted or empty, all metrics are collected
+  # datastore_metric_exclude = [] ## Nothing excluded by default
+  # datastore_instances = false ## false by default for Datastores only
+
+  ## Datacenters
+  datacenter_metric_include = [] ## if omitted or empty, all metrics are collected
+  datacenter_metric_exclude = [ "*" ] ## Datacenters are not collected by default.
+  # datacenter_instances = false ## false by default for Datastores only
+
+  ## Plugin Settings
+  ## separator character to use for measurement and field names (default: "_")
+  # separator = "_"
+
+  ## number of objects to retreive per query for realtime resources (vms and hosts)
+  ## set to 64 for vCenter 5.5 and 6.0 (default: 256)
+  # max_query_objects = 256
+
+  ## number of metrics to retreive per query for non-realtime resources (clusters and datastores)
+  ## set to 64 for vCenter 5.5 and 6.0 (default: 256)
+  # max_query_metrics = 256
+
+  ## number of go routines to use for collection and discovery of objects and metrics
+  # collect_concurrency = 1
+  # discover_concurrency = 1
+
+  ## whether or not to force discovery of new objects on initial gather call before collecting metrics
+  ## when true for large environments this may cause errors for time elapsed while collecting metrics
+  ## when false (default) the first collection cycle may result in no or limited metrics while objects are discovered
+  # force_discover_on_init = false
+
+  ## the interval before (re)discovering objects subject to metrics collection (default: 300s)
+  # object_discovery_interval = "300s"
+
+  ## timeout applies to any of the api request made to vcenter
+  # timeout = "20s"
+
+  ## Optional SSL Config
+  # ssl_ca = "/path/to/cafile"
+  # ssl_cert = "/path/to/certfile"
+  # ssl_key = "/path/to/keyfile"
+  ## Use SSL but skip chain & host verification
+  # insecure_skip_verify = false
+
+#----------------------------------------------FIN PLUGINS--------------------------------------------------------
+
+  # provide CA certificate or skip verify
+   insecure_skip_verify = true
+  #ssl_ca = "/path/to/ca"
+
+  # You will need to config the path if your Inventory layout is customized.
+  # You can also modify the field if you want to collect a portion of clusters
+  # By default, all clusters are collected.
+  #vsan_cluster_include = ["/*/host/*"]
+
+  # Exclude all other metrics
+#  vm_metric_exclude = ["*"]
+#  datastore_metric_exclude = ["*"]
+#  datacenter_metric_exclude = ["*"]
+#  host_metric_exclude = ["*"]
+#  cluster_metric_exclude = ["*"]
+
+  # By default all supported entity will be included
+#  vsan_metric_skip_verify = true
+#  vsan_metric_include = [
+#     "summary.disk-usage",
+#     "summary.health",
+#     "summary.resync",
+#     "performance.cluster-domclient",
+#     "performance.cluster-domcompmgr",
+#     "performance.host-domclient",
+#     "performance.host-domcompmgr",
+#     "performance.cache-disk",
+#     "performance.disk-group",
+#     "performance.capacity-disk",
+#     "performance.disk-group",
+#     "performance.virtual-machine",
+#     "performance.vscsi",
+#     "performance.virtual-disk",
+#     "performance.vsan-host-net",
+#     "performance.vsan-vnic-net",
+#     "performance.vsan-pnic-net",
+#     "performance.vsan-iscsi-host",
+#     "performance.vsan-iscsi-target",
+#     "performance.vsan-iscsi-lun",
+#     "performance.lsom-world-cpu",
+#     "performance.nic-world-cpu",
+#     "performance.dom-world-cpu",
+#     "performance.cmmds-world-cpu",
+#     "performance.host-cpu",
+#     "performance.host-domowner",
+#     "performance.host-memory-slab",
+#     "performance.host-memory-heap"
+#  ]
+
+  force_discover_on_init = true
+  collect_concurrency = 5
+  discover_concurrency = 5
+
+#  ssl_cert = "/path/to/certfile"
+#  ssl_key = "/path/to/keyfile"
+
+[[outputs.influxdb]]
+  ## The full HTTP or UDP URL for your InfluxDB instance.
+  ##
+  urls = ["http://influxdb:8086"]
+
+  ## The target database for metrics; will be created as needed.
+  ## For UDP url endpoint database needs to be configured on server side.
+  database = "db0"
+
+  ## The value of this tag will be used to determine the database.  If this
+  ## tag is not set the 'database' option is used as the default.
+  # database_tag = ""
+
+  ## If true, no CREATE DATABASE queries will be sent.  Set to true when using
+  ## Telegraf with a user without permissions to create databases or when the
+  ## database already exists.
+  skip_database_creation = false
+
+  insecure_skip_verify = true
+
+  flush_interval = "300s"
+
+[agent]
+  debug = true
+  quiet = false
+
+
